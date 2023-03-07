@@ -1,0 +1,283 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+//COLORS
+$primary: #fbf5e0;
+$white: whitesmoke;
+$brown: #3f332d;
+$blueDefault: #c6def1;
+$darkBlueDefault: #399ae7;
+$blueDisabed: #d2dae1;
+$darkBlueDisabled: #7aaed7;
+$green: #b5f4b8;
+$darkGreen: #42ae54;
+$red: #f9c6c9;
+$darkRed: #ff747c;
+
+@mixin btnDefault {
+  padding: 1em;
+  border-radius: 0.5em;
+}
+
+.defaultBtn {
+  background-color: $blueDefault;
+  border: solid 2px $darkBlueDefault;
+  box-shadow: 5px 5px 0px rgba(188, 186, 186, 0.3);
+  transition: 0.3s;
+  color: $brown;
+  font-size: 1rem;
+
+  &:hover,
+  &:focus {
+    transform: translateY(5px);
+    background-color: $darkBlueDefault;
+    box-shadow: 0px 0px 0px 0px rgb(188, 186, 186);
+    font-weight: bold;
+  }
+}
+
+.disabledBtn {
+  color: $brown;
+}
+
+.correctBtn {
+  background-color: $green;
+  border: solid 2px $darkGreen;
+  color: $brown;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.incorrectBtn {
+  background-color: $red;
+  border: solid 2px $darkRed;
+  color: $brown;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+@mixin centerFlex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  background-color: $primary;
+  font-family: "Nunito";
+
+  #homescreen {
+    //border: solid red;
+    width: 100vw;
+    height: 100vh;
+    @include centerFlex;
+    flex-direction: column;
+
+    a {
+      border: solid 2px $darkBlueDefault;
+      @include btnDefault;
+      background-color: $blueDefault;
+      width: 40%;
+      max-width: 300px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      color: $brown;
+    }
+  }
+
+  h1 {
+    margin-bottom: 1.5em;
+    text-align: center;
+    font-family: "Tilt Warp";
+    font-size: 3rem;
+  }
+
+  #quiz {
+    @include centerFlex;
+    min-height: 100vh;
+    padding: 1.5em;
+    flex-direction: column;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5em;
+      width: 100%;
+
+      // @media only screen and (min-width: 800px) {
+      //   width: 100%;
+      // }
+    }
+
+    #scoreboard {
+      border: solid 1px gray;
+      border-radius: 1em;
+      background-color: $white;
+      width: 100%;
+      padding: 0.5em;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      box-shadow: 10px 10px 0px 0px rgba(95, 95, 95, 0.1);
+
+      button {
+        @include btnDefault;
+        background-color: $red;
+        border: solid 2px $darkRed;
+        cursor: pointer;
+        padding: 1em 1.5em;
+        transition: 0.3s;
+
+        &:hover,
+        &:focus {
+          transform: translateY(2px);
+          background-color: $darkRed;
+          box-shadow: 0px 0px 0px 0px rgb(188, 186, 186);
+          //font-weight: bold;
+        }
+      }
+
+      p {
+        text-align: center;
+      }
+
+      .stat__label {
+        font-weight: bold;
+      }
+
+      @media only screen and (min-width: 800px) {
+        max-width: 1000px;
+      }
+    }
+
+    #quiz__container {
+      border: solid 1px rgb(199, 199, 199);
+      border-radius: 0.3em;
+      background: whitesmoke;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      width: 100%;
+      margin-top: 2em;
+      padding: 1em;
+      box-shadow: 15px 15px 0 0 rgba(95, 95, 95, 0.1);
+
+      p {
+        width: 100%;
+      }
+
+      @media only screen and (min-width: 800px) {
+        justify-content: space-between;
+        max-width: 1000px;
+        flex-direction: row;
+      }
+
+      .sign {
+        @include centerFlex;
+        //border: solid green;
+        img {
+          //border: solid red;
+          max-width: 250px;
+        }
+
+        @media only screen and (min-width: 800px) {
+          min-width: 40%;
+        }
+      }
+
+      .button-container {
+        width: 80%;
+        margin: auto;
+        padding: 3em;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        @media only screen and (min-width: 800px) {
+          width: 50%;
+        }
+
+        button {
+          @include btnDefault;
+          cursor: pointer;
+          font-family: "Nunito";
+        }
+      }
+
+      #option-btns {
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+
+        height: 100%;
+        margin-bottom: 1em;
+        gap: 1em;
+
+        button {
+          height: 100%;
+          text-align: left;
+        }
+      }
+
+      #next-btn {
+        // background-color: $blueDefault;
+        // border: solid 2px $darkBlueDefault;
+        box-shadow: 5px 5px 0px rgba(188, 186, 186, 0.2);
+        transition: 0.3s;
+
+        &:hover,
+        &:focus {
+          transform: translateY(5px);
+          box-shadow: 0px 0px 0px 0px rgba(188, 186, 186, 0.2);
+        }
+
+        @media only screen and (min-width: 700px) {
+          width: 50%;
+          margin-left: auto;
+        }
+      }
+    }
+  }
+
+  #modal {
+    //border: solid red;
+    background-color: rgba(188, 186, 186, 0.4);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+
+    #modal-content {
+      background-color: $white;
+      padding: 1em;
+      border-radius: 0.5em;
+      border: solid 1px gray;
+      width: 80%;
+      max-width: 400px;
+      aspect-ratio: 1/0.75;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+
+      h1 {
+        margin: 0;
+      }
+
+      button {
+        padding: 0.5em 1em;
+        border-radius: 0.3em;
+        font-size: 1.3em;
+        cursor: pointer;
+      }
+    }
+  }
+}
